@@ -1,0 +1,65 @@
+Creating a 100-day curriculum plan for middle school kids to develop a robot simulator and incrementally add robot sensors and behaviors using HTML, CSS, and JavaScript, with some Python for server-side programming, is a challenging but rewarding endeavor. Let's break down the plan into 10 phases, each spanning 10 days. I'll provide a high-level summary first and then outline daily tasks for each phase. Remember, the pace can vary depending on the students' comprehension, so flexibility is key.
+
+**Phase 1: Introduction to Web Technologies and Basic Robot Movement (Days 1-10)**
+
+* **Days 1-3:** Introduction to HTML, CSS, and JavaScript. Build a simple webpage.
+* **Days 4-6:** Create a basic robot image using HTML and CSS. Add arrow key functionality for movement.
+* **Days 7-10:** Enhance the robot's movement with smooth transitions. Implement forward, backward, left, and right movements.
+
+**Phase 2: Adding Obstacle Detection (Days 11-20)**
+
+* **Days 11-14:** Introduce collision detection. Learn to stop the robot when it encounters an obstacle.
+* **Days 15-17:** Create simple obstacle objects on the webpage using HTML/CSS. Make the robot detect these obstacles.
+* **Days 18-20:** Implement collision detection logic. Ensure the robot can't move through obstacles.
+
+**Phase 3: Basic Map Generation (Days 21-30)**
+
+* **Days 21-24:** Learn about HTML5 canvas. Create a basic grid to represent a map.
+* **Days 25-27:** Generate a random map layout with obstacles.
+* **Days 28-30:** Integrate the generated map with the robot simulator.
+
+**Phase 4: Robot Localization (Days 31-40)**
+
+* **Days 31-34:** Introduce the concept of robot position and orientation. Display the robot's position on the map.
+* **Days 35-37:** Implement user-controlled robot rotation.
+* **Days 38-40:** Develop code to calculate the robot's position based on user input.
+
+**Phase 5: Motion Planning (Days 41-50)**
+
+* **Days 41-43:** Introduce the concept of waypoints. Implement waypoint navigation.
+* **Days 44-47:** Create a path-following algorithm for the robot to navigate through waypoints.
+* **Days 48-50:** Refine the path-following algorithm. Ensure the robot reaches its destination.
+
+**Phase 6: Adding Sensors (Days 51-60)**
+
+* **Days 51-54:** Introduce virtual sensors (e.g., proximity sensors) for the robot.
+* **Days 55-57:** Implement sensor readings based on the robot's position relative to obstacles.
+* **Days 58-60:** Use sensor readings to modify robot behavior (e.g., stopping when an obstacle is too close).
+
+**Phase 7: Autonomy (Days 61-70)**
+
+* **Days 61-64:** Begin autonomy development. Introduce basic decision-making algorithms.
+* **Days 65-67:** Implement obstacle avoidance behavior using sensors.
+* **Days 68-70:** Combine motion planning and obstacle avoidance to enable autonomous movement.
+
+**Phase 8: Localization in Map (Days 71-80)**
+
+* **Days 71-74:** Implement map localization algorithms (e.g., particle filter or simple grid-based methods).
+* **Days 75-77:** Develop code to display the robot's estimated position on the map.
+* **Days 78-80:** Test and refine map localization accuracy.
+
+**Phase 9: Advanced Sensors and Behaviors (Days 81-90)**
+
+* **Days 81-84:** Introduce more advanced sensors (e.g., color sensors, light sensors) and behaviors (e.g., line following).
+* **Days 85-87:** Implement sensor fusion to improve decision-making.
+* **Days 88-90:** Explore more complex behaviors like exploration or patrolling.
+
+**Phase 10: Final Enhancements and Project Completion (Days 91-100)**
+
+* **Days 91-94:** Work on final enhancements such as a user interface, visualizations, or additional features.
+* **Days 95-97:** Test the complete robot simulator thoroughly.
+* **Days 98-100:** Prepare a project presentation or demo to showcase the robot simulator. Reflect on the learning journey and discuss possible extensions.
+
+Throughout the curriculum, regular review sessions, quizzes, and coding challenges should be incorporated to reinforce learning and ensure understanding. Encourage students to ask questions and seek clarification as needed. The goal is not just to complete tasks but to deeply understand the concepts and gradually build a functional robot simulator. Remember that progress may vary among students, so patience and support are crucial for success.
+
+
