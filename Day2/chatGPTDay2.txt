@@ -1,0 +1,64 @@
+Great! Let's move on to Day 2. On this day, we'll enhance your basic webpage by adding an image of a robot and making it visually appealing. Here are the detailed instructions:
+
+**Day 2: Adding an Image and Styling**
+
+**Objective:** Add an image of a robot to your webpage and apply CSS styling to make it visually appealing.
+
+**Tasks:**
+
+1. **Find an Image:**
+   - Search for a robot image online (e.g., a cartoon-style robot). Ensure it's a simple image suitable for your project.
+
+2. **Download the Image:**
+   - Save the robot image to your project folder. Name it something like "robot.png" or "robot.jpg."
+
+3. **Edit Your HTML File:**
+   - Open the "index.html" file in your text editor.
+
+4. **Add an Image Element:**
+   - Inside the `<body>` tag, add an `<img>` element to display the robot image. Make sure to specify the correct path to your image file.
+
+   ```html
+   <body>
+       <h1>Welcome to the Robot Simulator!</h1>
+       <img src="robot.png" alt="Robot Image">
+   </body>
+   ```
+
+   - The `src` attribute should point to the file path of your robot image.
+   - The `alt` attribute provides alternative text for screen readers.
+
+5. **Apply CSS Styling:**
+   - Add a `<style>` block inside the `<head>` section of your HTML file to apply CSS styles.
+
+   ```html
+   <style>
+       body {
+           text-align: center;
+           background-color: #f0f0f0;
+       }
+       
+       h1 {
+           color: #333;
+       }
+
+       img {
+           width: 200px;
+       }
+   </style>
+   ```
+
+   - In this example, we center-align text, set the background color, change text color, and adjust the image width.
+
+6. **Save and Refresh:**
+   - Save the "index.html" file.
+   - Refresh your web browser to see the changes.
+
+7. **Experiment with Styling:**
+   - Try modifying the CSS properties (e.g., changing colors, adjusting image size) to get familiar with CSS styling.
+
+**Homework Assignment:**
+
+- Experiment with different CSS properties to further style your webpage. You can change font styles, background colors, and more to make your robot simulator webpage visually appealing.
+
+By the end of Day 2, you should have added an image of a robot to your webpage and applied basic CSS styling to improve its appearance. This will make your robot simulator project more engaging as we continue to build it.
