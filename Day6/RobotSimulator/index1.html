@@ -32,10 +32,14 @@
 
 <body>
     <h1>Welcome to the Robot Simulator!</h1>
-    <canvas id="mapCanvas" width="1000" height="1000"></canvas>
+    <canvas id="mapCanvas" width="600" height="600"></canvas>
     <img id="robot" src="img/neato2.png" alt="Robot Image">
+
+    <!-- 
     <div class="obstacle" style="top: 150px; left: 250px;"></div>
     <div class="obstacle" style="top: 300px; left: 100px;"></div>
+    -->
+
     <!-- Add more obstacle divs as needed -->
     <script>
     document.addEventListener('keydown', function(event) {
@@ -55,6 +59,7 @@
         } else if (event.key === 'ArrowRight') {
             robotLeft += speed;
         }
+
 
         // Check for collisions with obstacles
         let collision = false;
@@ -76,6 +81,8 @@
             robot.style.top = robotTop + 'px';
             robot.style.left = robotLeft + 'px';
         }
+
+
     });
 
 
