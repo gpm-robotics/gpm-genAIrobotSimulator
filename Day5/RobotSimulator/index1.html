@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Robot Simulator</title>
+    <style>
+    body {
+        text-align: center;
+        background-color: #f0f0f0;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    img {
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .obstacle {
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        position: absolute;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the Robot Simulator!</h1>
+    <canvas id="mapCanvas" width="1000" height="1000"></canvas>
+    <img id="robot" src="img/neato2.png" alt="Robot Image">
+    <div class="obstacle" style="top: 150px; left: 250px;"></div>
+    <div class="obstacle" style="top: 300px; left: 100px;"></div>
+    <!-- Add more obstacle divs as needed -->
+    <script>
+    document.addEventListener('keydown', function(event) {
+        const robot = document.querySelector('#robot');
+        const obstacles = document.querySelectorAll('.obstacle');
+        const speed = 10;
+
+        let robotTop = parseFloat(getComputedStyle(robot).top);
+        let robotLeft = parseFloat(getComputedStyle(robot).left);
+
+        if (event.key === 'ArrowUp') {
+            robotTop -= speed;
+        } else if (event.key === 'ArrowDown') {
+            robotTop += speed;
+        } else if (event.key === 'ArrowLeft') {
+            robotLeft -= speed;
+        } else if (event.key === 'ArrowRight') {
+            robotLeft += speed;
+        }
+
+        // Check for collisions with obstacles
+        let collision = false;
+        obstacles.forEach(obstacle => {
+            const obstacleRect = obstacle.getBoundingClientRect();
+            const robotRect = robot.getBoundingClientRect();
+
+            if (
+                robotRect.left < obstacleRect.right &&
+                robotRect.right > obstacleRect.left &&
+                robotRect.top < obstacleRect.bottom &&
+                robotRect.bottom > obstacleRect.top
+            ) {
+                collision = true;
+            }
+        });
+
+        if (!collision) {
+            robot.style.top = robotTop + 'px';
+            robot.style.left = robotLeft + 'px';
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.querySelector('#mapCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set up grid properties
+        const gridSize = 20; // Adjust the size as needed.
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        // Draw the grid
+        for (let x = 0; x <= canvasWidth; x += gridSize) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, canvasHeight);
+        }
+
+        for (let y = 0; y <= canvasHeight; y += gridSize) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvasWidth, y);
+        }
+
+        ctx.strokeStyle = 'gray'; // Grid line color
+        ctx.stroke();
+    });
+    </script>
+</body>
+
+</html>
