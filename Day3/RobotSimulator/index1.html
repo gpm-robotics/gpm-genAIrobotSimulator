@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Robot Simulator</title>
     <style>
-    body {
-        text-align: center;
-        background-color: #f0f0f0;
-    }
+        body {
+            text-align: center;
+            background-color: #f0f0f0;
+        }
 
-    h1 {
-        color: #333;
-    }
+        h1 {
+            color: #333;
+        }
 
-    img {
-        width: 200px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+        img {
+            width: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .obstacle {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+        }
     </style>
 </head>
-
 <body>
     <h1>Welcome to the Robot Simulator!</h1>
     <img id="robot" src="img/neato2.png" alt="Robot Image">
+    <div class="obstacle" style="top: 150px; left: 250px;"></div>
+    <div class="obstacle" style="top: 300px; left: 100px;"></div>
+    <!-- Add more obstacle divs as needed --> 
     <script>
         document.addEventListener('keydown', function (event) {
             const robot = document.querySelector('#robot');
-            const speed = 10; // Adjust the speed as needed.
+            const obstacles = document.querySelectorAll('.obstacle');
+            const speed = 10;
+
+            let robotTop = parseFloat(getComputedStyle(robot).top);
+            let robotLeft = parseFloat(getComputedStyle(robot).left);
 
             if (event.key === 'ArrowUp') {
-                robot.style.top = (parseFloat(getComputedStyle(robot).top) - speed) + 'px';
+                robotTop -= speed;
             } else if (event.key === 'ArrowDown') {
-                robot.style.top = (parseFloat(getComputedStyle(robot).top) + speed) + 'px';
+                robotTop += speed;
             } else if (event.key === 'ArrowLeft') {
-                robot.style.left = (parseFloat(getComputedStyle(robot).left) - speed) + 'px';
+                robotLeft -= speed;
             } else if (event.key === 'ArrowRight') {
-                robot.style.left = (parseFloat(getComputedStyle(robot).left) + speed) + 'px';
+                robotLeft += speed;
+            }
+
+            // Check for collisions with obstacles
+            let collision = false;
+            obstacles.forEach(obstacle => {
+                const obstacleRect = obstacle.getBoundingClientRect();
+                const robotRect = robot.getBoundingClientRect();
+
+                if (
+                    robotRect.left < obstacleRect.right &&
+                    robotRect.right > obstacleRect.left &&
+                    robotRect.top < obstacleRect.bottom &&
+                    robotRect.bottom > obstacleRect.top
+                ) {
+                    collision = true;
+                }
+            });
+
+            if (!collision) {
+                robot.style.top = robotTop + 'px';
+                robot.style.left = robotLeft + 'px';
             }
         });
     </script>
 </body>
-
 </html>
