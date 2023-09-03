@@ -54,3 +54,97 @@ Great to hear that you've completed Day 2! Let's continue with Day 3. On this da
 - Try adding boundaries to prevent the robot from moving outside the visible area of the webpage.
 
 By the end of Day 3, you should have implemented arrow key functionality for your robot image, allowing it to move within the webpage. This interactivity is the foundation for building the robot simulator's movement controls.
+
+
+
+Fantastic! Let's move on to Day 4. On this day, we'll introduce collision detection and prevent the robot from moving through obstacles. Here are the detailed instructions:
+
+**Day 4: Implementing Collision Detection**
+
+**Objective:** Enable collision detection to prevent the robot from moving through obstacles on the webpage.
+
+**Tasks:**
+
+1. **Create Obstacle Elements:**
+   - In your HTML file (index.html), create some obstacles using `<div>` elements. You can position these divs anywhere on the webpage to serve as obstacles.
+
+   ```html
+   <div class="obstacle" style="top: 150px; left: 250px;"></div>
+   <div class="obstacle" style="top: 300px; left: 100px;"></div>
+   <!-- Add more obstacle divs as needed -->
+   ```
+
+   - Customize the position, size, and appearance of the obstacles as desired. You can use CSS to style them.
+
+2. **Add CSS for Obstacles:**
+   - In the `<style>` block of your HTML file, add styles for the `.obstacle` class to make the obstacles visible.
+
+   ```css
+   .obstacle {
+       width: 40px;
+       height: 40px;
+       background-color: red;
+       position: absolute;
+   }
+   ```
+
+   - You can change the background color and size to make the obstacles stand out.
+
+3. **Update JavaScript for Collision Detection:**
+   - Modify the JavaScript code inside the `<script>` block to include collision detection logic. This code will check if the robot collides with any obstacles and prevent its movement accordingly.
+
+   ```javascript
+   document.addEventListener('keydown', function (event) {
+       const robot = document.querySelector('#robot');
+       const obstacles = document.querySelectorAll('.obstacle');
+       const speed = 10;
+
+       let robotTop = parseFloat(getComputedStyle(robot).top);
+       let robotLeft = parseFloat(getComputedStyle(robot).left);
+
+       if (event.key === 'ArrowUp') {
+           robotTop -= speed;
+       } else if (event.key === 'ArrowDown') {
+           robotTop += speed;
+       } else if (event.key === 'ArrowLeft') {
+           robotLeft -= speed;
+       } else if (event.key === 'ArrowRight') {
+           robotLeft += speed;
+       }
+
+       // Check for collisions with obstacles
+       let collision = false;
+       obstacles.forEach(obstacle => {
+           const obstacleRect = obstacle.getBoundingClientRect();
+           const robotRect = robot.getBoundingClientRect();
+
+           if (
+               robotRect.left < obstacleRect.right &&
+               robotRect.right > obstacleRect.left &&
+               robotRect.top < obstacleRect.bottom &&
+               robotRect.bottom > obstacleRect.top
+           ) {
+               collision = true;
+           }
+       });
+
+       if (!collision) {
+           robot.style.top = robotTop + 'px';
+           robot.style.left = robotLeft + 'px';
+       }
+   });
+   ```
+
+4. **Save and Test:**
+   - Save the "index.html" file.
+   - Open it in your web browser.
+
+5. **Test Collision Detection:**
+   - Move the robot using the arrow keys and observe how it interacts with the obstacles. It should now stop moving when it encounters an obstacle.
+
+**Homework Assignment:**
+
+- Add more obstacles to your webpage and adjust their positions to create a maze or challenging environment for the robot.
+- Experiment with different obstacle sizes and positions to fine-tune the collision detection.
+
+By the end of Day 4, you should have implemented collision detection, allowing the robot to interact with obstacles and preventing it from passing through them. This is an essential step in creating a more realistic robot simulator.
