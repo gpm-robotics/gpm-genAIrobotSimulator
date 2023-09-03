@@ -1,0 +1,56 @@
+Great to hear that you've completed Day 2! Let's continue with Day 3. On this day, we'll add interactivity to your robot image by enabling it to move when you press arrow keys. Here are the detailed instructions:
+
+**Day 3: Adding Arrow Key Functionality for Robot Movement**
+
+**Objective:** Enable the robot image to move in response to arrow key presses.
+
+**Tasks:**
+
+1. **Edit Your HTML File:**
+   - Open the "index.html" file in your text editor.
+
+2. **Add JavaScript Code:**
+   - Inside the `<head>` section of your HTML file, add a `<script>` block to include JavaScript code.
+
+   ```html
+   <script>
+       document.addEventListener('keydown', function (event) {
+           const robot = document.querySelector('#robot');
+           const speed = 10; // Adjust the speed as needed.
+
+           if (event.key === 'ArrowUp') {
+               robot.style.top = (parseFloat(getComputedStyle(robot).top) - speed) + 'px';
+           } else if (event.key === 'ArrowDown') {
+               robot.style.top = (parseFloat(getComputedStyle(robot).top) + speed) + 'px';
+           } else if (event.key === 'ArrowLeft') {
+               robot.style.left = (parseFloat(getComputedStyle(robot).left) - speed) + 'px';
+           } else if (event.key === 'ArrowRight') {
+               robot.style.left = (parseFloat(getComputedStyle(robot).left) + speed) + 'px';
+           }
+       });
+   </script>
+   ```
+
+   - This JavaScript code listens for keydown events and moves the robot image accordingly when arrow keys are pressed.
+   - The `parseFloat` and `getComputedStyle` functions are used to calculate and update the position of the robot image.
+
+3. **Update Your Image Element:**
+   - In your HTML, give your robot image an `id` attribute so that JavaScript can target it.
+
+   ```html
+   <img id="robot" src="robot.png" alt="Robot Image">
+   ```
+
+4. **Save and Test:**
+   - Save the "index.html" file.
+   - Open it in your web browser.
+
+5. **Test Robot Movement:**
+   - Use the arrow keys on your keyboard to move the robot image around the webpage.
+
+**Homework Assignment:**
+
+- Experiment with the `speed` variable in the JavaScript code to control how fast the robot moves when arrow keys are pressed.
+- Try adding boundaries to prevent the robot from moving outside the visible area of the webpage.
+
+By the end of Day 3, you should have implemented arrow key functionality for your robot image, allowing it to move within the webpage. This interactivity is the foundation for building the robot simulator's movement controls.
