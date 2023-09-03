@@ -1,0 +1,55 @@
+Certainly! On Day 1, we'll start with the basics of web development and create a simple webpage. Here are detailed instructions to get started:
+
+**Day 1: Introduction to HTML, CSS, and Creating a Webpage**
+
+**Objective:** Understand the fundamentals of HTML and CSS and create a basic webpage.
+
+**Tasks:**
+
+1. **Learn about HTML and CSS:**
+   - HTML (HyperText Markup Language) is used to structure the content of web pages.
+   - CSS (Cascading Style Sheets) is used to style and format the content.
+
+2. **Set Up a Text Editor:**
+   - You can use any text editor for coding. Recommended editors include Visual Studio Code, Sublime Text, or even Notepad (on Windows).
+
+3. **Create a Folder:**
+   - Create a folder on your computer to organize your project files. Name it something like "RobotSimulator."
+
+4. **Create HTML File:**
+   - Inside the project folder, create a new file and name it "index.html."
+
+5. **Write HTML Code:**
+   - Open "index.html" in your text editor.
+   - Write the following basic HTML structure:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robot Simulator</title>
+</head>
+<body>
+    <h1>Welcome to the Robot Simulator!</h1>
+</body>
+</html>
+```
+
+   - This code defines a simple webpage with a title and a heading.
+
+6. **Save and Open in a Web Browser:**
+   - Save the "index.html" file.
+   - Open it in a web browser (e.g., Google Chrome, Firefox) by double-clicking the file or right-clicking and choosing "Open with."
+
+7. **Explore the Webpage:**
+   - You should see the title "Robot Simulator" in the browser tab and the heading "Welcome to the Robot Simulator!" displayed on the webpage.
+
+8. **Learn about HTML Elements:**
+   - HTML consists of various elements like `<html>`, `<head>`, `<body>`, `<h1>`, and more. These elements structure and display content on web pages.
+
+**Homework Assignment:**
+
+- Research and experiment with adding more HTML elements (e.g., paragraphs, lists) and applying basic CSS styles (e.g., changing text color, font size) to your webpage.
+- Try to understand the purpose of each HTML element and how CSS can be used for styling.
+
+By the end of Day 1, you should have a basic understanding of HTML, CSS, and have created a simple webpage. This foundational knowledge will be crucial as we proceed to build the robot simulator.
