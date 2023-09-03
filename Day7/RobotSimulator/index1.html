@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Robot Simulator</title>
+    <style>
+    body {
+        text-align: center;
+        background-color: #f0f0f0;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    img {
+        width: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .obstacle {
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        position: absolute;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the Robot Simulator!</h1>
+    <canvas id="mapCanvas" width="600" height="600"></canvas>
+    <img id="robot" src="img/neato2.png" alt="Robot Image">
+    <!-- 
+    <div class="obstacle" style="top: 150px; left: 250px;"></div>
+    <div class="obstacle" style="top: 300px; left: 100px;"></div>
+    -->
+    <!-- Add more obstacle divs as needed -->
+    <script>
+    let robotX = 1; // Initial x-coordinate
+    let robotY = 1; // Initial y-coordinate
+    let robotOrientation = 'north'; // Initial orientation
+
+
+   
+    // Handle arrow key presses for user control
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowUp') {
+            // Move the robot up
+            if (robotY > 0) {
+                robotY--;
+            }
+            robotOrientation = 'north'; // Update orientation
+        } else if (event.key === 'ArrowDown') {
+            // Move the robot down
+            if (robotY * gridSize < canvasHeight - gridSize) {
+                robotY++;
+            }
+            robotOrientation = 'south'; // Update orientation
+        } else if (event.key === 'ArrowLeft') {
+            // Move the robot left
+            if (robotX > 0) {
+                robotX--;
+            }
+            robotOrientation = 'west'; // Update orientation
+        } else if (event.key === 'ArrowRight') {
+            // Move the robot right
+            if (robotX * gridSize < canvasWidth - gridSize) {
+                robotX++;
+            }
+            robotOrientation = 'east'; // Update orientation
+        }
+
+        // Update robot's position and orientation
+        robot.style.top = (robotY * gridSize) + 'px';
+        robot.style.left = (robotX * gridSize) + 'px';
+        robot.style.transform = `rotate(${getRotationAngle(robotOrientation)}deg)`;
+    });
+
+
+    // Helper function to get rotation angle based on orientation
+    function getRotationAngle(orientation) {
+        switch (orientation) {
+            case 'north':
+                return 0;
+            case 'south':
+                return 180;
+            case 'west':
+                return -90;
+            case 'east':
+                return 90;
+            default:
+                return 0;
+        }
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.querySelector('#mapCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set up grid properties
+        const gridSize = 20; // Adjust the size as needed.
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        // Draw the grid
+        for (let x = 0; x <= canvasWidth; x += gridSize) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, canvasHeight);
+        }
+
+        for (let y = 0; y <= canvasHeight; y += gridSize) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvasWidth, y);
+        }
+
+        ctx.strokeStyle = 'gray'; // Grid line color
+        ctx.stroke();
+
+        // Generate random obstacles
+        const numObstacles = 20; // Adjust the number of obstacles as needed.
+        const obstacleSize = gridSize - 2; // Adjust the size as needed.
+
+        for (let i = 0; i < numObstacles; i++) {
+            const x = Math.floor(Math.random() * (canvasWidth / gridSize)) * gridSize + 1;
+            const y = Math.floor(Math.random() * (canvasHeight / gridSize)) * gridSize + 1;
+
+            ctx.fillStyle = 'black'; // Obstacle color
+            ctx.fillRect(x, y, obstacleSize, obstacleSize);
+        }
+
+        // Update robot's position
+        robot.style.top = (robotY * gridSize) + 'px';
+        robot.style.left = (robotX * gridSize) + 'px';
+
+        // Update robot's orientation (adjust rotation angle as needed)
+        robot.style.transform = `rotate(0deg)`; // Example: robot faces north
+
+    });
+    </script>
+</body>
+
+</html>
